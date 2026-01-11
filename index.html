@@ -1,38 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Ativação Pixel Facebook</title>
+<meta charset="UTF-8">
+<title>Ofertas da Shopee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2304245076756014');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2304245076756014');
+fbq('track', 'PageView');
+</script>
 
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  text-align: center;
+  padding: 30px;
+}
+.container {
+  max-width: 420px;
+  margin: auto;
+}
+h1 {
+  font-size: 22px;
+}
+p {
+  color: #555;
+}
+.cta {
+  display: block;
+  background: #ee4d2d;
+  color: #fff;
+  text-decoration: none;
+  padding: 18px;
+  margin: 18px 0;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.cta span {
+  display: block;
+  font-size: 13px;
+  font-weight: normal;
+}
+</style>
 </head>
+
 <body>
 
-  <h1>Pixel do Facebook Ativo ✅</h1>
-  <p>Se você está vendo esta página, o Pixel já está funcionando.</p>
+<div class="container">
+  <h1 id="titulo">🔥 OFERTA DA SHOPEE</h1>
+  <p id="descricao">Últimas unidades com desconto</p>
 
-  <!-- Botão para evento -->
-  <button onclick="fbq('track', 'Lead')">
-    Testar Evento Lead
-  </button>
+  <a class="cta" href="#" onclick="irShopee()">
+    VER OFERTA AGORA
+    <span id="info">Produto mais vendido</span>
+  </a>
+</div>
+
+<script>
+// PRODUTOS (EDITE AQUI)
+const produtos = {
+  1: {
+    titulo: "🔥 Produto Viral Shopee",
+    descricao: "O mais vendido da semana",
+    info: "Frete grátis hoje",
+    link: "https://shopee.com.br/SEU_LINK_1"
+  },
+  2: {
+    titulo: "💥 Oferta Limitada Shopee",
+    descricao: "Desconto por tempo limitado",
+    info: "Últimas unidades",
+    link: "https://shopee.com.br/SEU_LINK_2"
+  },
+  3: {
+    titulo: "⭐ Produto Recomendado",
+    descricao: "Avaliação 5 estrelas",
+    info: "Mais comprado",
+    link: "https://shopee.com.br/SEU_LINK_3"
+  }
+};
+
+// LER URL (?p=1)
+const params = new URLSearchParams(window.location.search);
+const produtoID = params.get("p") || 1;
+const produto = produtos[produtoID];
+
+// APLICAR DADOS
+document.getElementById("titulo").innerText = produto.titulo;
+document.getElementById("descricao").innerText = produto.descricao;
+document.getElementById("info").innerText = produto.info;
+
+// CLICK
+function irShopee() {
+  fbq('track', 'ViewContent');
+  setTimeout(function(){
+    window.location.href = produto.link;
+  }, 350);
+}
+</script>
 
 </body>
 </html>

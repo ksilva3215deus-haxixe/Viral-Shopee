@@ -47,6 +47,9 @@ p {
   font-size: 16px;
   font-weight: bold;
 }
+small {
+  color: #777;
+}
 </style>
 </head>
 
@@ -56,14 +59,28 @@ p {
   <h1>🎒 Kit Mochila Sonic Infantil</h1>
   <p>Ideal para escola ou presente</p>
 
-  <a class="btn" href="https://shopee.com.br/gJjjSciyQ?share_channel_code=1" 
-     target="_blank"
-     onclick="fbq('track','ViewContent')">
+  <a class="btn" href="#" onclick="abrirShopee()">
     🔥 VER OFERTA AGORA
   </a>
 
   <small>Frete grátis e desconto hoje</small>
 </div>
+
+<script>
+function abrirShopee() {
+  fbq('track', 'ViewContent');
+
+  const linkProduto = "https://s.shopee.com.br/8APkgpamtU"
+
+  // Primeira tentativa
+  window.location.href = linkProduto;
+
+  // Fallback (caso o app falhe)
+  setTimeout(function() {
+    window.location.href = linkProduto;
+  }, 1200);
+}
+</script>
 
 </body>
 </html>

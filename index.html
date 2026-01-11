@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Ofertas da Shopee</title>
+<title>Oferta Shopee</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- META PIXEL -->
@@ -36,21 +36,16 @@ h1 {
 p {
   color: #555;
 }
-.cta {
+.btn {
   display: block;
   background: #ee4d2d;
   color: #fff;
   text-decoration: none;
   padding: 18px;
-  margin: 18px 0;
+  margin: 20px 0;
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
-}
-.cta span {
-  display: block;
-  font-size: 13px;
-  font-weight: normal;
 }
 </style>
 </head>
@@ -58,46 +53,17 @@ p {
 <body>
 
 <div class="container">
-  <h1 id="titulo">🔥 OFERTA DA SHOPEE</h1>
-  <p id="descricao">Últimas unidades com desconto</p>
-
-  <a class="cta" href="#" onclick="irShopee()">
-    VER OFERTA AGORA
-    <span id="info">Produto mais vendido</span>
-  </a>
-</div>
-
-<script>
-// PRODUTOS (EDITE AQUI)
-<div class="produto">
   <h1>🎒 Kit Mochila Sonic Infantil</h1>
   <p>Ideal para escola ou presente</p>
 
-  <a href="shopee.com.br/gJjjSciyQ?share_channel_code=1" target="_blank" class="btn">
+  <a class="btn" href="https://shopee.com.br/gJjjSciyQ?share_channel_code=1" 
+     target="_blank"
+     onclick="fbq('track','ViewContent')">
     🔥 VER OFERTA AGORA
   </a>
 
   <small>Frete grátis e desconto hoje</small>
 </div>
-
-// LER URL (?p=1)
-const params = new URLSearchParams(window.location.search);
-const produtoID = params.get("p") || 1;
-const produto = produtos[produtoID];
-
-// APLICAR DADOS
-document.getElementById("titulo").innerText = produto.titulo;
-document.getElementById("descricao").innerText = produto.descricao;
-document.getElementById("info").innerText = produto.info;
-
-// CLICK
-function irShopee() {
-  fbq('track', 'ViewContent');
-  setTimeout(function(){
-    window.location.href = produto.link;
-  }, 350);
-}
-</script>
 
 </body>
 </html>
